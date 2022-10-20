@@ -1,5 +1,5 @@
 ---
-typora-root-url: images
+typora-root-url: https://github.com/zhangfeibao/pygame-for-chinese-children/images
 ---
 
 # pygame simple wraper
