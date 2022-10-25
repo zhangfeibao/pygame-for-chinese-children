@@ -1,12 +1,17 @@
 ---
 typora-root-url: https://github.com/zhangfeibao/pygame-for-chinese-children/tree/main/images
 ---
-
 # pygame simple wraper
 
 A lite,simple package for game makeing based on pygame.
 
 more:https://github.com/zhangfeibao/pygame-for-chinese-children
+
+# Build
+
+python -m build
+
+python -m twine upload dist/*
 
 # 安装
 
@@ -88,6 +93,3 @@ while True:
     game.刷新画面()
 
 ```
-
-
-
