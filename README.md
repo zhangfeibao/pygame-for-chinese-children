@@ -1,5 +1,5 @@
 ---
-typora-root-url: images
+typora-root-url: https://github.com/zhangfeibao/pygame-for-chinese-children/tree/main/images
 ---
 
 # pygame simple wraper
@@ -49,7 +49,7 @@ while True:
 
 现在如果运行程序，应该能看到一个简单的窗口，显示Hello World文本
 
-![](/hello.png)
+![窗口](https://github.com/zhangfeibao/pygame-for-chinese-children/tree/main/images/hello.png)
 
 但是，你会发现，我们无法关闭这个窗口，那是因为我们还没有编写代码对这个用户点击关闭按钮的动作做出响应。
 
