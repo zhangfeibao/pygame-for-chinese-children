@@ -393,25 +393,54 @@ class 字体(pg.font.Font):
     def __init__(self,字体路径:Optional[str] = None,大小:int = 28):
         pg.font.Font.__init__(self,字体路径,大小)
 
+class 文本框:
+    def __init__(self,font:字体, text:str, foreground:tuple[3], background:tuple[3]):
+        '''
+        :param font:字体实列
+        :param text: 文本框内容
+        :param foreground:前景色
+        :param background:背景色
+        '''
+        self.字体 = font
+        self.内容 = text
+        self.横坐标 = 0
+        self.纵坐标 = 0
+        self.前景色 = foreground
+        self.背景色 = background
+
+    @property
+    def 表面(self)-> pg.Surface:
+        return self.字体.render(self.内容, True, self.前景色, self.背景色)
+
+
 def 创建字体(字体路径:Optional[str] = None,字体大小:int = 28)->字体:
     return 字体(字体路径,字体大小)
 
+
 def 创建文本框(字体:字体,内容:str,
-            抗锯齿:bool = True,
             文字颜色红色分量:int = 0,
             文字颜色绿色分量:int = 0,
             文字颜色蓝色分量:int = 0,
             背景颜色红色分量:int = 255,
             背景颜色绿色分量:int = 255,
-            背景颜色蓝色分量:int = 255)->pg.Surface:
-    sf:pg.Surface = 字体.render(内容,抗锯齿,
-            (文字颜色红色分量,文字颜色绿色分量,文字颜色蓝色分量),
-            (背景颜色红色分量,背景颜色绿色分量,背景颜色蓝色分量))
+            背景颜色蓝色分量:int = 255)->文本框:
+    """
+    :param 字体: 文本框的字体
+    :param 内容: 文本框的内容
+    :param 文字颜色红色分量: R
+    :param 文字颜色绿色分量: G
+    :param 文字颜色蓝色分量: B
+    :param 背景颜色红色分量: R
+    :param 背景颜色绿色分量: G
+    :param 背景颜色蓝色分量: B
+    :return:
+    """
+    sf:文本框 = 文本框(字体, 内容, (文字颜色红色分量,文字颜色绿色分量,文字颜色蓝色分量),(背景颜色红色分量,背景颜色绿色分量,背景颜色蓝色分量))
 
     return sf
 
-def 添加文本框到窗口(文本框:pg.Surface,横坐标:float,纵坐标:float)->None:
-    __window_surface.blit(文本框,[横坐标,纵坐标])
+def 添加文本框到窗口(_文本框:文本框)->None:
+    __window_surface.blit(_文本框.表面, [_文本框.横坐标,_文本框.纵坐标])
 
 
 
